@@ -1,25 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <!-- <Layout></Layout> -->
+    <Job></Job>
+    <!-- <Mine></Mine> -->
+    <!-- <Register></Register> -->
 </template>
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
 
-#nav
-  padding 30px
-  a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
+
+<script>
+import Layout from "@/components/Layout/Layout"
+import Job from "@/components/Job/Job"
+import Mine from "@/components/Mine/Mine"
+import Register from "@/components/Mine/Register"
+ var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'vertical', // 垂直切换选项
+    loop: true, // 循环模式选项
+    
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+    // 如果需要滚动条
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  }) 
+  
+export default {
+  components:{
+    Layout,
+    Job,
+    Mine,
+    Register
+  },
+}
+</script>
+
+
+
+
+<style lang="stylus">
+@import "~@/assets/reset.styl";
+
 </style>
