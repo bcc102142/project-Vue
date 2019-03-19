@@ -1,16 +1,16 @@
 <template>
  <div class="item-container">
-      <img src="https://sxsimg.xiaoyuanzhao.com/4A/E4/4AF73600AB0154217006CD64BC91CFE4.png" alt="">
+      <img :src=item.img alt="">
     <div class="item-center">
-      <p class="item-center-title">测试开发实习生</p>
-      <p class="item-center-center">阿里巴巴</p>
+      <p class="item-center-title">{{item.title}}</p>
+      <p class="item-center-center">{{item.company}}</p>
       <div>
-        <p>杭州</p>
+        <p>{{item.address}}</p>
       </div>
     </div>
     <div class="item-right">
-      <p class="item-right-top">03-14-09:03</p>
-      <p class="item-right-bottom">￥300-400/天</p>
+      <p class="item-right-top">{{item.showtime}}</p>
+      <p class="item-right-bottom">{{item.salary}}</p>
     </div>
      <div>
 
@@ -20,12 +20,16 @@
 
 <script>
  export default {
+   props:['item'],
    data () {
      return {
 
      }
    },
    components: {
+
+   },
+   mounted(){
 
    }
  }

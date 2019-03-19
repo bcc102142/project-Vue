@@ -1,43 +1,24 @@
 <template>
-    <!-- <Layout></Layout> -->
-    <Job></Job>
-    <!-- <Mine></Mine> -->
+    <!-- <Home></Home> -->
+   
     <!-- <Register></Register> -->
+    <Detail></Detail>
 </template>
 
 
 <script>
-import Layout from "@/components/Layout/Layout"
-import Job from "@/components/Job/Job"
-import Mine from "@/components/Mine/Mine"
-import Register from "@/components/Mine/Register"
- var mySwiper = new Swiper ('.swiper-container', {
-    direction: 'vertical', // 垂直切换选项
-    loop: true, // 循环模式选项
-    
-    // 如果需要分页器
-    pagination: {
-      el: '.swiper-pagination',
-    },
-    
-    // 如果需要前进后退按钮
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    
-    // 如果需要滚动条
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  }) 
+
+import Home from "home/Home"
+
+import Register from "home/Register"
+import Detail from "home/Detail"
+ 
   
 export default {
   components:{
-    Layout,
-    Job,
-    Mine,
-    Register
+    Home,
+    Register,
+    Detail
   },
 }
 </script>

@@ -13,7 +13,7 @@
 <script>
 
 
-import Swiper from '@/components/util/Swiper'
+import Swiper from '@/components/Layout/Swiper'
  export default {
    data () {
      return {
@@ -23,6 +23,7 @@ import Swiper from '@/components/util/Swiper'
    components: {
       Swiper
    }
+ 
  }
 </script>
 

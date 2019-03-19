@@ -47,7 +47,9 @@
             stopOnLastSlide: false,
             disableOnInteraction: true,
         },
+
     });
+    
  
   }
  }

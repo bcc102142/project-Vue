@@ -58,18 +58,17 @@
          index:0
      }
    },
-   methods:{
+   components: {
+
+   },
+     methods:{
        clickHandler(index){
            this.index = index
            console.log(this.index)
        }
    },
-   components: {
-
-   }
  }
 </script>
-
 <style lang="stylus" scoped>
 @import '~@/assets/border.styl'
 .mine-container
