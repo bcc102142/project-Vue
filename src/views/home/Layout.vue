@@ -5,7 +5,7 @@
     <main>
 
       <div class="main-list">
-            <MainList :arry="data"></MainList>
+            <MainList></MainList>
       </div>
      
     </main>
@@ -19,12 +19,11 @@ import Header from "@/components/Layout/Header";
 import Tabbar from "@/components/Layout/Tabbar";
 import Nav from "@/components/Layout/Nav";
 import MainList from "@/components/Layout/MainList";
-import request from '@/util/request.js' 
 import BScroll from 'better-scroll'
 export default {
   data() {
     return {
-      data : []
+     
     };
   },
   components: {
@@ -33,15 +32,11 @@ export default {
     Nav,
     MainList
   },
-  async created(){
-    //获取数据
-      let data = await request({
-        url:'/ajax/test.json'
-      })
-      this.data = data.text
-  },
+
   mounted (){
-    let scroll = new BScroll('.main-list')
+    let scroll = new BScroll('.main-list',{
+      click: true,
+    })
     
   }
 };

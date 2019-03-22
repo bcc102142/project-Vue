@@ -2,7 +2,7 @@
   <div class="tab-container">
     <ul>
 
-      <router-link to="/home" tag="li" active-class="active">
+      <router-link to="/home/layout" tag="li" active-class="active">
         <svg
           t="1552656336877"
           class="icon"
@@ -24,7 +24,7 @@
         <b>首页</b>
       </router-link>
 
-      <router-link to="/job" tag="li" active-class="active">
+      <router-link to="/home/job" tag="li" active-class="active">
         <svg
           t="1552656430646"
           class="icon"
@@ -45,7 +45,7 @@
         </svg>
         <b>职位</b>
       </router-link>
-      <router-link tag="li" to="/mine" active-class="active">
+      <router-link tag="li" to="/home/mine" active-class="active">
         <svg
           t="1552655990893"
           class="icon"
@@ -57,6 +57,7 @@
           xmlns:xlink="http://www.w3.org/1999/xlink"
           width="25"
           height="200"
+          
         >
           <path
             d="M512 704c-176 0-320-144-320-320S336 64 512 64s320 144 320 320-144 320-320 320z m0-576c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m371.2 832c-8 0-17.6-3.2-24-9.6C768 852.8 644.8 800 512 800s-256 52.8-348.8 150.4c-12.8 12.8-32 12.8-44.8 1.6-12.8-12.8-12.8-32-1.6-44.8C220.8 796.8 361.6 736 512 736s291.2 60.8 395.2 169.6c12.8 12.8 11.2 33.6-1.6 44.8-6.4 6.4-14.4 9.6-22.4 9.6z"
@@ -123,6 +124,7 @@ export default {
       }
       &.active svg path {
         fill: $base-color;
+       
       }
     }
   }

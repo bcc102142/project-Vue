@@ -1,21 +1,20 @@
 <template>
- <div>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide slide-a"><a href="#"></a></div>
-                <div class="swiper-slide slide-b"><a href="#"></a></div>
-                <div class="swiper-slide slide-c"><a href="#"></a></div>
-               <div class="swiper-slide slide-d"><a href="#"></a></div>
-               <div class="swiper-slide slide-e"><a href="#"></a></div>
-               <div class="swiper-slide slide-f"><a href="#"></a></div>
-               <div class="swiper-slide slide-g"><a href="#"></a></div>
-       
-    
-            </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
-         
-        </div>
+ <div class="swiper-container">
+
+    <swiper :options="swiperOption" v-if="arr.length >1" class="slide-a">
+      <template  v-for="(item,index) in arr" >
+        <template v-if="(sum>index)&&(name==='splash')">
+          <swiper-slide  :key="item.img" >
+            <img :src="item.img" alt="" style="width:100%;height:100%">
+             <button @click="clickHandler" v-if="index===1">立即进入</button>
+            </swiper-slide>
+        </template>
+        <template v-if="name==='Header'">
+        <swiper-slide  :key="item.img" ><img :src="item.img" alt="" style="width:100%;height:100%"></swiper-slide>
+        </template>
+      </template>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
 
  </div>
 </template>
@@ -24,61 +23,84 @@
 
 <script>
 
-
+import request from 'util/request.js'
+import { setTimeout } from 'timers';
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { Indicator } from 'mint-ui';
+// import { swiper, swiperSlide } from 'vue-awesome-swiper'
  export default {
+   props:["sum","name"],
    data () {
      return {
-
+        arr:[],
+        swiperOption: {
+          direction: 'horizontal',
+          // freeMode : true,
+          // freeModeSticky : true,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination'
+          },
+           autoplay: this.name==='Header'?{
+                  delay: 1000,
+                  stopOnLastSlide: false,
+                  disableOnInteraction: true,
+          }:"",
+          
+        },
      }
    },
    components: {
-
+      swiper,
+      swiperSlide
    },
-    mounted() {
-    var mySwiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        loop: true, // 循环模式选项
-        // 如果需要分页器
-        pagination: {
-        el: '.swiper-pagination',
-        },
-        autoplay: {
-            delay: 1000,
-            stopOnLastSlide: false,
-            disableOnInteraction: true,
-        },
+   methods:{
+     clickHandler(){
+       this.$router.replace("/home")
+     }
+   },
+     async created(){
 
-    });
-    
- 
-  }
+        Indicator.open({
+        text: 'Loading...',
+        spinnerType: 'fading-circle'
+      });
+
+    let data =  await request({
+        url:`/operations/recommend? req_id=526d25b6-f849-688d-9b28-46ca033929ed&uuid=83527628-f960-5afa-9f54-df8222b887c9&city=全国&client_type=wap&client_os&url=https://wap.shixiseng.com/&uri=/&refer=https://wap.shixiseng.com/interns&ad_groups=[{"ad_position":"P_9_1","max_num":10}]`,
+        method:"POST",
+      })
+
+      Indicator.close();
+
+      this.arr=data.msg.P_9_1
+    },
+
  }
 </script>
 
 <style lang="stylus" scoped>
 
 .swiper-container
-    height 1.5rem
-    .slide-a
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/3E/F2/3E27ABB082C6D75623DA38D453307FF2.png'); 
-    .slide-b
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/80/AC/80DBEFC058FA5B6520C08EC3A96522AC.png');
-    .slide-c
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/14/96/14DF631E72D31D37AE2BF09BD0D4A096.png');
-    .slide-d
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/EB/11/EB1DD30DD42BC6757B7EAC255083FB11.png');
-    .slide-e
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/20/A4/20205E5840D8EC0F8D2A9A0110A1BBA4.png');
-    .slide-f
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/03/E7/03806D828F0F063851F442C074F6B3E7.png');
-    .slide-g
-        background-size 100% 100%
-        background-image url('https://sxsimg.xiaoyuanzhao.com/CD/3E/CD05F3C50D54DAE07B1199343FE6A63E.png');
- 
+    height 100%
+    .swiper-wrapper
+      height 100%
+      .swiper-slide
+        position relative
+        img
+          width 100%
+          height 100%
+        button
+          position absolute
+          left 50%
+          top 80%
+          transform translate(-50%, 0)
+          width 1.8rem
+          height .55rem
+          font-size .18rem
+          border-radius .1rem
+          color #fff
+          background rgba(0, 0, 0, 0.8)
+        
 </style>

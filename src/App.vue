@@ -1,8 +1,8 @@
 <template>
-    <!-- <Home></Home> -->
+    <router-view></router-view>
    
     <!-- <Register></Register> -->
-    <Detail></Detail>
+    <!-- <Detail></Detail> -->
 </template>
 
 

@@ -19,7 +19,12 @@ module.exports = {
         '/ajax': {
           target: 'http://10.60.18.142:8080',
           changeOrigin: true
+        },
+        '/operations': {
+          target: 'https://wap.shixiseng.com',
+          changeOrigin: true
         }
-      }
+      },
+      
     }
 }

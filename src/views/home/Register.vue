@@ -24,9 +24,9 @@
               <a href="https://www.shixiseng.com/rule">《实习僧用户协议》</a>
             </div>
         </div>
-        <div class="go-register" >
+        <router-link tag="div" to="/home/mine" class="go-register" >
             <a href="#">立即登陆</a>
-        </div>
+        </router-link>
      </div>
      
  </div>

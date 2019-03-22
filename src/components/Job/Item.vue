@@ -1,5 +1,5 @@
 <template>
- <div class="item-container">
+ <div class="item-container" @click="clickHandler">
       <img :src=item.img alt="">
     <div class="item-center">
       <p class="item-center-title">{{item.title}}</p>
@@ -26,12 +26,12 @@
 
      }
    },
-   components: {
-
-   },
-   mounted(){
-
-   }
+    methods:{
+      clickHandler(){
+        console.log(111)
+        this.$router.push("/home/detail")
+      }
+    },
  }
 </script>
 

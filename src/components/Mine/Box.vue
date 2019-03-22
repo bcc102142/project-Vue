@@ -1,7 +1,9 @@
 <template>
  <div class="mine-container">
      <div class="mine-container-box">
+         <router-link to="/" tag="h2">返回首页</router-link>
         <h2 class="title">登陆实习曾</h2>
+        
         <div class="change-box">
             <div :class="index === 0 ? 'actice' : ''" class="login-box" @click="clickHandler(0)">
                 <p>密码登陆</p>
@@ -36,16 +38,16 @@
             </div>
         </div>
 
-        <div class="login-button">立即登陆</div>
+        <div class="login-button">登陆</div>
         <div class="other-login">
             <a class="wechat" href="#"></a>
             <a class="qq" href="#"></a>
             <a class="weibo" href="#"></a>
             <a class="alipay" href="#"></a>
         </div>
-        <div class="go-register" >
+        <router-link to="/home/register" tag="div" class="go-register" >
             <a href="#">立即注册</a>
-        </div>
+        </router-link>
      </div>
      
  </div>
@@ -173,14 +175,6 @@
                         font-size .14rem
                         outline none
                         border-width 0
-        
-        
-        
-        
-        
-        
-        
-        
         
         h2
             color: #000;
